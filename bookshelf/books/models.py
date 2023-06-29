@@ -7,10 +7,10 @@ class Author(models.Model):
     surname = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
     birth = models.DateField()
-    death = models.DateField()
+    death = models.DateField(null=True, blank=True)
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
     year = models.DateField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE())
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField()
